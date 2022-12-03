@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conociendo mi salud: IMC</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="icon" type="image/x-icon" href="../favicon.png">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand ml-4" href="../index.html">Conociendo mi salud</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">IMC </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./404.html">Tasa de metabolismo basal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./404.html">Calcula tu peso ideal</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h1 class="text-center m-3">Calcula tu Índice de Masa Corporal (IMC)</h1>
+            <h2>¿Qué es el IMC?</h2>
+            <p>El IMC o Índice de Masa Corporal es la medición que valora tu peso en relación con tu altura. Puede
+                usarse a cualquier edad y se puede calcular el IMC de mujeres, hombres y niños. El cálculo del IMC
+                clasifica a los individuos en bajo peso, peso normal o sobrepeso, por lo que gracias a él se puede
+                determinar si una persona tiene un peso inapropiado o poco sano para su altura. La calculadora del
+                índice de masa corporal es una herramienta muy útil en el caso de personas se fijen un objetivo de
+                cambio de peso, ya que ayuda a identificar cambios de peso. Es más, hoy en día se considera el cálculo
+                del IMC un método más exacto que otros indicadores de salud, como pueden ser la talla o el peso.</p>
+            <H2 class="mt-3 mb-3">Quiero calcularlo!</H2>
+            <p>Ingresa los datos requeridos a continuación y nosotros calcularemos tu IMC de manera instantánea.</p>
+            <!-- Opciones para que el usuario indique su peso y altura-->
+            <div class="row">
+                <label class="col-12">Altura (en cm)</label>
+                <div class="col-12 col-md-4">
+                    <input class="form-control" type="text" id="height" placeholder="Altura en cm">
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-12">Peso (en kg)</label>
+                <div class="col-12 col-md-4">
+                    <input class="form-control col-6" type="text" id="weight" placeholder="Peso en kg">
+                </div>
+            </div>
+            <button class="mt-4 mb-4 btn btn-primary" id="btn">Calcular</button>
+            <div class="mt-3" id="result"></div>
+            <H2 class="mt-3 mb-3">Mira la tabla de IMC de acuerdo a tu altura</H2>
+            <table class="table">
+                <thead>
+                    <th scope="col">Peso</th>
+                    <th scope="col">IMC</th>
+                    <th scope="col">Clasificación</th>
+                </thead>
+                <tbody id="tableBMI">
+
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <p class="col-md-4 mb-0 text-muted">&copy; 2022 Diego Holder Jimenez</p>
+
+            <a href="/"
+                class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32">
+                    <use xlink:href="#bootstrap" />
+                </svg>
+            </a>
+
+            <ul class="nav col-md-4 justify-content-end">
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Principal</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">IMC</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Metabolismo</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Peso Ideal</a></li>
+            </ul>
+        </footer>
+    </div>
+    <script src="../js/main.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
