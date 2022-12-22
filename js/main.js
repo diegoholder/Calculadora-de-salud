@@ -2,6 +2,7 @@ window.onload = () => {
     button = document.querySelector("#btn");
     // Función para calcular el IMC
     button.addEventListener("click", calculateAndRenderBMI);
+    document.getElementById("add-user-button").addEventListener("click", updateUsersBMR);
 };
 function calculateAndRenderBMI() {
     /* Consiguiendo el input del usuario para la altura
@@ -31,7 +32,7 @@ function calculateAndRenderBMI() {
     }
     let initialWeight = 40;
     let resultHTML = ""
-    
+
     while (initialWeight <= 120) {
         let tableBMIvalue = calculateBMI(heightValue, initialWeight);
         let BMItype = getBMIType(tableBMIvalue);
@@ -52,3 +53,71 @@ function getBMIType(bmi) {
     else result = "Sobrepeso";
     return result;
 }
+// Esta parte del código será usado para los cálculos de la página relacionada al metabolismo, se implementará con Arrays y Objetos
+// Creando un Array vacío para guardar los objetos de usuario
+let users = [];
+
+// Definiendo la función para calcular el metabolismo basal
+function calculateBMR(weight, height, age, sex) {
+    // La fórmula para hombres es: TMB = 10 * peso (kg) + 6.25 * altura (cm) - 5 * edad (años) + 5
+    // La fórmula para mujeres es: TMB = 10 * peso (kg) + 6.25 * altura (cm) - 5 * edad (años) - 161
+    if (sex === "male") {
+        return 10 * weight + 6.25 * height - 5 * age + 5;
+    } else {
+        return 10 * weight + 6.25 * height - 5 * age - 161;
+    }
+}
+function createTable() {
+    // Get the table element
+    let table = document.getElementById("user-table");
+
+    // Clear the existing table rows (excluding the header)
+    table.innerHTML = "";
+
+    // Loop through the users array
+    for (let i = 0; i < users.length; i++) {
+        // Get the current user
+        let user = users[i];
+
+        // Create a new table row element
+        let row = document.createElement("tr");
+
+        // Add the user's information to the row
+        row.innerHTML = `
+        <td>${user.name}</td>
+        <td>${user.weight}</td>
+        <td>${user.height}</td>
+        <td>${user.age}</td>
+        <td>${user.sex}</td>
+        <td>${user.bmr}</td>
+      `;
+
+        // Add the row to the table
+        table.appendChild(row);
+    }
+}
+// Añadiendo funcionalidad al botón usando un Event Listener
+function updateUsersBMR() {
+    // Consiguiendo los inputs
+    let name = document.getElementById("name-input").value;
+    let weight = document.getElementById("weight-input").value;
+    let height = document.getElementById("height-input").value;
+    let age = document.getElementById("age-input").value;
+    let sex = document.querySelector('input[name="sex"]:checked').value;
+
+    // Calculando el metabolismo con la función definida anteriormente
+    let bmr = calculateBMR(weight, height, age, sex);
+
+    // Creando el nuevo objeto de usuario y añadiéndolo al array
+    let user = { name: name, weight: weight, height: height, age: age, sex: sex, bmr: bmr };
+    users.push(user);
+    console.log(JSON.stringify(users));
+    createTable();
+    // Limpiando los campos de input
+    document.getElementById("name-input").value = "";
+    document.getElementById("weight-input").value = "";
+    document.getElementById("height-input").value = "";
+    document.getElementById("age-input").value = "";
+}
+
+
