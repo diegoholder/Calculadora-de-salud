@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conociendo mi salud: IMC</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="icon" type="image/x-icon" href="../favicon.png">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand ml-4" href="../index.html">Conociendo mi salud</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">IMC </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./basalMetabolicRate.html">Tasa de metabolismo basal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./404.html">Calcula tu peso ideal</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h1 class="text-center m-3">Calcula la Tasa Metabólica Basal de Varias personas</h1>
+            <h2>¿Qué es la tasa de metabolismo basal (TMB)?</h2>
+            <p>La tasa metabólica basal (TMB) es la cantidad mínima de energía que necesita tu cuerpo para sobrevivir
+                realizando las funciones básicas, tales como respirar, parpadear, filtrar la sangre, regular la
+                temperatura del cuerpo o sintetizar hormonas. Aunque estés en absoluto reposo, tu cuerpo sigue
+                trabajando para llevar a cabo aquellas funciones vitales necesarias para el correcto funcionamiento de
+                tu organismo.</H2>
+            <p>Ingresa los datos requeridos a continuación y nosotros calcularemos la tasa de metabolismo basal de todas
+                las personas que necesites manera instantánea.</p>
+            <form>
+                <!-- Input para el nombre -->
+                <div class="row">
+                    <label class="col-12 col-md-4" for="name-input">Nombre:</label>
+                    <input class="col-12 col-md-4" type="text" id="name-input">
+                </div>
+                <!-- Input para el peso -->
+                <div class="row">
+                    <label class="col-12 col-md-4" for="weight-input">Peso (kg):</label>
+                    <input class="col-12 col-md-4" type="number" id="weight-input">
+                </div>
+                <!-- Input para la altura -->
+                <div class="row">
+                    <label class="col-12 col-md-4" for="height-input">Altura (cm):</label>
+                    <input class="col-12 col-md-4" type="number" id="height-input">
+                </div>
+                <!-- Input para la edad -->
+                <div class="row">
+                    <label class="col-12 col-md-4" for="age-input">Edad (años):</label>
+                    <input class="col-12 col-md-4" type="number" id="age-input">
+                </div>
+                <!-- Botón "radio" para el sexo -->
+                <div>
+                    <label for="sex-input">Sexo:</label><br>
+                    <input type="radio" name="sex" value="male"> Hombre
+                    <input type="radio" name="sex" value="female"> Mujer
+                </div>
+                <!-- Botón para añadir un objeto al array con toda la información del usuario -->
+                <button class="mt-4 mb-4 btn btn-primary" id="add-user-button">Añadir persona</button>
+            </form>
+            <table id="user-table">
+                <tr>
+                    <th>Name</th>
+                    <th>Weight (kg)</th>
+                    <th>Height (cm)</th>
+                    <th>Age (years)</th>
+                    <th>Sex</th>
+                    <th>BMR</th>
+                </tr>
+            </table>
+        </div>
+    </main>
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <p class="col-md-4 mb-0 text-muted">&copy; 2022 Diego Holder Jimenez</p>
+
+            <a href="/"
+                class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32">
+                    <use xlink:href="#bootstrap" />
+                </svg>
+            </a>
+
+            <ul class="nav col-md-4 justify-content-end">
+                <li class="nav-item"><a href="../index.html" class="nav-link px-2 text-muted">Principal</a></li>
+                <li class="nav-item"><a href="./bmi.html" class="nav-link px-2 text-muted">IMC</a></li>
+                <li class="nav-item"><a href="./basalMetabolicRate.html"
+                        class="nav-link px-2 text-muted">Metabolismo</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Peso Ideal</a></li>
+            </ul>
+        </footer>
+    </div>
+    <script src="../js/main.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
