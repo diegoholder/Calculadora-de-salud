@@ -1,6 +1,6 @@
 window.onload = () => {
     button = document.querySelector("#btn");
-    // Función para calcular el IMC
+    if (button !== null)
     button.addEventListener("click", calculateAndRenderBMI);
     document.getElementById("add-user-button").addEventListener("click", updateUsersBMR);
 };
@@ -68,21 +68,21 @@ function calculateBMR(weight, height, age, sex) {
     }
 }
 function createTable() {
-    // Get the table element
+    // Consiguiendo el elemento de la tabla
     let table = document.getElementById("user-table");
 
-    // Clear the existing table rows (excluding the header)
+    // Limpiando las filas de la tabla
     table.innerHTML = "";
 
-    // Loop through the users array
+    // Loopeando los usuarios a traves del array
     for (let i = 0; i < users.length; i++) {
-        // Get the current user
+        // Consiguiendo el usuario actual
         let user = users[i];
 
-        // Create a new table row element
+        // Creando una nueva fila a la tabla
         let row = document.createElement("tr");
 
-        // Add the user's information to the row
+        // Añadiendo la información del usuario a la tabla
         row.innerHTML = `
         <td>${user.name}</td>
         <td>${user.weight}</td>
@@ -92,12 +92,14 @@ function createTable() {
         <td>${user.bmr}</td>
       `;
 
-        // Add the row to the table
+        // Añadiendo la fila a la table
         table.appendChild(row);
     }
 }
 // Añadiendo funcionalidad al botón usando un Event Listener
 function updateUsersBMR() {
+    // Esto arregla un comportamiento por defecto de javascript que me reiniciaba la página cuando le daba clic al botón del form
+    event.preventDefault()
     // Consiguiendo los inputs
     let name = document.getElementById("name-input").value;
     let weight = document.getElementById("weight-input").value;
@@ -111,7 +113,6 @@ function updateUsersBMR() {
     // Creando el nuevo objeto de usuario y añadiéndolo al array
     let user = { name: name, weight: weight, height: height, age: age, sex: sex, bmr: bmr };
     users.push(user);
-    console.log(JSON.stringify(users));
     createTable();
     // Limpiando los campos de input
     document.getElementById("name-input").value = "";
