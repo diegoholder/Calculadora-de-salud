@@ -1,7 +1,7 @@
 window.onload = () => {
     button = document.querySelector("#btn");
     if (button !== null)
-    button.addEventListener("click", calculateAndRenderBMI);
+        button.addEventListener("click", calculateAndRenderBMI);
     document.getElementById("add-user-button").addEventListener("click", updateUsersBMR);
 };
 function calculateAndRenderBMI() {
@@ -36,8 +36,8 @@ function calculateAndRenderBMI() {
     while (initialWeight <= 120) {
         let tableBMIvalue = calculateBMI(heightValue, initialWeight);
         let BMItype = getBMIType(tableBMIvalue);
-        initialWeight = initialWeight + 5;
         resultHTML = resultHTML + `<tr> <th scope="col">${initialWeight}</th> <th scope="col">${tableBMIvalue}</th> <th scope="col">${BMItype}</th>`
+        initialWeight = initialWeight + 5;
     }
     document.querySelector("#tableBMI").innerHTML = resultHTML;
 }
