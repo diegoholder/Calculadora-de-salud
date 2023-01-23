@@ -3,6 +3,7 @@ window.onload = () => {
     if (button !== null)
         button.addEventListener("click", calculateAndRenderBMI);
     document.getElementById("add-user-button").addEventListener("click", updateUsersBMR);
+    createTable()
 };
 function calculateAndRenderBMI() {
     /* Consiguiendo el input del usuario para la altura
@@ -57,6 +58,10 @@ function getBMIType(bmi) {
 // Creando un Array vacío para guardar los objetos de usuario
 let users = [];
 
+if (localStorage.getItem('users')) {
+    users = JSON.parse(localStorage.getItem('users'));
+  }
+  
 // Definiendo la función para calcular el metabolismo basal
 function calculateBMR(weight, height, age, sex) {
     // La fórmula para hombres es: TMB = 10 * peso (kg) + 6.25 * altura (cm) - 5 * edad (años) + 5
@@ -113,6 +118,7 @@ function updateUsersBMR() {
     // Creando el nuevo objeto de usuario y añadiéndolo al array
     let user = { name: name, weight: weight, height: height, age: age, sex: sex, bmr: bmr };
     users.push(user);
+    localStorage.setItem('users', JSON.stringify(users));
     createTable();
     // Limpiando los campos de input
     document.getElementById("name-input").value = "";
